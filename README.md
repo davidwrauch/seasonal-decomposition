@@ -1,1 +1,1 @@
-# seasonal-decomposition
+Analysis to understand seasonality and trends of visitor data for tech company using seasonal decomposition analysis from the forecast library in r. Examine both the weekly and daily trends of visitors over the last 2 years.
