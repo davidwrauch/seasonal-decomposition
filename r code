@@ -1,0 +1,25 @@
+library('ggplot2')
+library('forecast')
+library('tseries')
+
+market <-read_csv("year_marketing.csv")
+View(market)
+
+market2year <-read_csv("visitors2years.csv")
+View(market2year)
+
+##daily
+freqdaily = findfrequency(market$`dailyVisitors`)
+freqdaily
+##7 day frequency
+
+arima.stl = stl(ts(market$`dailyVisitors`, frequency=7), s.window="periodic")
+plot(arima.stl, main = "Seasonality Decomposition")
+
+#weekly
+freq = findfrequency(market2year$`weeklyVisitors`)
+freq
+##6 week frequency
+
+arimaweekly.stl = stl(ts(market2year$`weeklyVisitors`, frequency=6), s.window="periodic")
+plot(arimaweekly.stl, main = "Seasonality Decomposition")
